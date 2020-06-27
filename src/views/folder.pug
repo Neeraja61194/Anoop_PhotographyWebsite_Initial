@@ -1,0 +1,36 @@
+extends ./layout.pug
+
+block content
+    br
+    br
+    br
+    br
+    .container
+        section#photos
+            each photo in photos
+                a(href='/img/photos/' + photo.image, data-lightbox='mygallery')
+                    img(src='/img/photos/' + photo.image alt="photo.image")
+                
+block styles
+    link(rel='stylesheet' href="/css/imageGallery1.css" , media='all')
+    link(rel='stylesheet' href="/css/lightbox.min.css")
+block javascript
+  script(src="/js/lightbox-plus-jquery.min.js")
+
+
+
+//-         form.form-horizontal
+//-             .form-group
+//-                 label.col-sm-2.control-label(for='name') Name
+//-                 .col-sm-10
+//-                 input#name.form-control(disabled='')
+//-             .form-group
+//-                 label.col-sm-2.control-label(for='postcode') Postcode
+//-                 .col-sm-10
+//-                 input#postcode.form-control(disabled='')
+//-             .form-group
+//-                 .col-sm-offset-2.col-sm-10
+//-                 button#edit.btn.btn-default(type='edit', onclick='return handleEdit()') Edit
+//-                 button#save.btn.btn-default(type='submit', hidden='') Save
+//- block javascript 
+//-     script(src="/js/editable.js")

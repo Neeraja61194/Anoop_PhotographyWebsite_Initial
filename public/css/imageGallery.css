@@ -1,0 +1,42 @@
+body {
+  text-align: center;
+  }
+h2 {
+  color: green;
+  }
+/* .gallery {
+  margin: 10px 40px;
+  } */
+
+.gallery img {
+  /* width: 300px;
+  height: 300px; */
+  transition: 0.5s;
+  padding: 1px;
+  display: inline-block;
+  background-color: white;
+  border:1px solid white;
+  border-radius: 5px;
+  margin-right: 10px;
+  }
+  
+.gallery img:nth-of-type(1) {
+  margin-left: 10px;
+  margin-top: 20px;
+}
+
+.gallery:nth-child(odd) img{ 
+  float:right; 
+  width: 300px;
+  height: 300px;
+}
+.gallery:nth-child(even) img{
+  float:left;
+  width: 100px;
+  height: 100px;
+  direction: rtl;
+}
+.gallery img:hover {
+  filter: drop-shadow(4px 4px 6px gray);
+  transform: scale(1.1);
+  }

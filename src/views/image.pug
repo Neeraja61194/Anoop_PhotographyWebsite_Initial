@@ -1,0 +1,18 @@
+extends ./layout.pug
+
+block content   
+  body
+    h2 GeeksforGeeks
+    b A Computer Science Portal for Geeks
+    .container
+      .gallery
+        each photo in photos
+          a(href='/img/photos/' + photo.image, data-lightbox='mygallery')
+            img(src='/img/photos/' + photo.image alt="photo.image")
+      
+block styles
+  link(rel='stylesheet' href="/css/imageGallery.css")
+  link(rel='stylesheet' href="/css/lightbox.min.css")
+block javascript
+  script(src="/js/lightbox-plus-jquery.min.js")
+

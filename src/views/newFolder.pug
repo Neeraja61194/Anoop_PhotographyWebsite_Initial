@@ -1,0 +1,9 @@
+extends ./layout.pug
+
+block content
+    .container
+        p This is a form that you can use to create a new superhero
+        form(action="/folders" method="post" enctype="multipart/form-data")
+            input(type="file" placeholder="Folder picture" name="file")
+            input(type="text" placeholder="Folder name" required="required" name="folder")
+            button Create

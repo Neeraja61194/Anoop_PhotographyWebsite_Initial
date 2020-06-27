@@ -1,0 +1,16 @@
+extends ./layout.pug
+
+block content
+  .container
+    h1 Update view
+    p This is a form that you can use to update a superhero
+    form(action="/folderUpdate/" + folder._id method="post" enctype="multipart/form-data")
+        input(type="file" placeholder="folder picture" name="file")
+        input(type="text" value=folder.name placeholder="folder name" required="required" name="folder")
+        button Update
+
+    div(class="card" style="width: 18rem;")
+      img(class="card-img-top" src='/img/photos/' + folder.folder_img alt="folder.folder_img")
+      div(class="card-body")
+        h5(class="card-title")= folder.name
+        p(class="card-text")= folder.name

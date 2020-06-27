@@ -1,0 +1,184 @@
+extends ./layout.pug
+
+block content
+  // Page Content
+  #main.w3-padding-large
+    // Header/Home
+    header#home.w3-container.w3-center.w3-black
+      h1.w3-jumbo
+        span.w3-hide-small I'm
+        |  John Doe.
+      p Photographer and Web Designer.
+      img.w3-image(src='img/main4.jpg', alt='boy', width='992', height='1108')
+    // About Section
+    #about.w3-content.w3-justify.w3-text-grey.w3-padding-64
+      h2.w3-text-light-grey My Name
+      hr.w3-opacity(style='width:200px')
+      p
+        | Some text about me. Some text about me. I am lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+        | ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur
+        | adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      br
+      hr
+      div(class="frost") Hello from frost container 
+      h3.w3-padding-16.w3-text-light-grey My Skills
+      p.w3-wide Photography
+      .w3-white
+        .w3-dark-grey(style='height:28px;width:95%')
+      p.w3-wide Web Design
+      .w3-white
+        .w3-dark-grey(style='height:28px;width:85%')
+      p.w3-wide Photoshop
+      .w3-white
+        .w3-dark-grey(style='height:28px;width:80%')
+      br
+      .w3-row.w3-center.w3-padding-16.w3-section.w3-light-grey
+        .w3-quarter.w3-section
+          span.w3-xlarge 11+
+          br
+          |         Partners
+        .w3-quarter.w3-section
+          span.w3-xlarge 55+
+          br
+          |         Projects Done
+        .w3-quarter.w3-section
+          span.w3-xlarge 89+
+          br
+          |         Happy Clients
+        .w3-quarter.w3-section
+          span.w3-xlarge 150+
+          br
+          |         Meetings
+      button.w3-button.w3-light-grey.w3-padding-large.w3-section
+        i.fa.fa-download
+        |  Download Resume
+      // Grid for pricing tables
+      h3.w3-padding-16.w3-text-light-grey My Price
+      .w3-row-padding(style='margin:0 -16px')
+        .w3-half.w3-margin-bottom
+          ul.w3-ul.w3-white.w3-center.w3-opacity.w3-hover-opacity-off
+            li.w3-dark-grey.w3-xlarge.w3-padding-32 Basic
+            li.w3-padding-16 Web Design
+            li.w3-padding-16 Photography
+            li.w3-padding-16 5GB Storage
+            li.w3-padding-16 Mail Support
+            li.w3-padding-16
+              h2 $ 10
+              span.w3-opacity per month
+            li.w3-light-grey.w3-padding-24
+              button.w3-button.w3-white.w3-padding-large.w3-hover-black Sign Up
+        .w3-half
+          ul.w3-ul.w3-white.w3-center.w3-opacity.w3-hover-opacity-off
+            li.w3-dark-grey.w3-xlarge.w3-padding-32 Pro
+            li.w3-padding-16 Web Design
+            li.w3-padding-16 Photography
+            li.w3-padding-16 50GB Storage
+            li.w3-padding-16 Endless Support
+            li.w3-padding-16
+              h2 $ 25
+              span.w3-opacity per month
+            li.w3-light-grey.w3-padding-24
+              button.w3-button.w3-white.w3-padding-large.w3-hover-black Sign Up
+        // End Grid/Pricing tables
+        // Testimonials
+        
+        br
+        br
+        br
+        br
+      #photos
+        h2.w3-text-light-grey My Photos 
+        a(href="/newFolder" class="btn btn-primary") New Folder
+        a(href="/newPhoto" class="btn btn-primary") New Image
+        br
+        br
+        br
+        br
+        .card-deck
+            each folder in variables.folders
+                .col-md-6
+                    a(href="/folders/" + folder._id style="text-decoration: none;")
+                        .card(class="box box-higher" id="drop-shadow")
+                            img.card-img(class="card-img-top" src='/img/photos/' + folder.folder_img alt=folder.folder_img style="height:350px;width:100%;")
+                            .card-img-overlay.text-white.d-flex.flex-column.justify-content-center
+                                h1(class="card-title")= folder.name
+        //-                         p(style="color:white; text-align:center") Click Here
+        //-                         i(style="color:black; text-align:center").fa.fa-camera-retro.fa-3x
+        //-                         a(href="/delete/" + folder._id class="btn btn-danger") Delete
+        //-                         a(href="/update/" + folder._id class="btn btn-info") Update
+        //- br
+        br
+        .card-deck
+            each folder in variables.folders
+                .col-md-6
+                    a(href="/folders/" + folder._id style="text-decoration: none;")
+                        .card
+                          .card__content
+                            .card__front
+                              img.card-img(class="card-img-top" src='/img/photos/' + folder.folder_img alt=folder.folder_img style="height:420px;width: 300px")
+                              .card-img-overlay.text-white.d-flex.flex-column.justify-content-center
+                                  h3.card__title= folder.name
+                                  p.card__subtitle Click Here
+                            .card__back
+                              p.card__body
+                                | This would be some longer text that gives a description of the things from the other side I guess
+        br
+        br
+        .card-deck
+            each folder in variables.folders
+                .col-md-6
+                    a(href="/folders/" + folder._id style="text-decoration: none;")
+                        .card(class="box box-higher" id="drop-shadow")
+                            img.card-img(src='/img/photos/' + folder.folder_img alt=folder.folder_img style="height:350px;width:100%;")
+                            .details
+                                .card-img-overlay.d-flex.flex-column.justify-content-center
+                                    .content
+                                        h1(class="card-title")= folder.name
+                //-                         p(style="color:white; text-align:center") Click Here
+                //-                         i(style="color:black; text-align:center").fa.fa-camera-retro.fa-3x
+                //- br
+        
+      br
+      br
+      #contact.w3-padding-64.w3-content.w3-text-grey
+        h2.w3-text-light-grey Contact Me
+        hr.w3-opacity(style='width:200px')
+        .w3-section
+          p
+            i.fa.fa-map-marker.fa-fw.w3-text-white.w3-xxlarge.w3-margin-right
+            |  Chicago, US
+          p
+            i.fa.fa-phone.fa-fw.w3-text-white.w3-xxlarge.w3-margin-right
+            |  Phone: +00 151515
+          p
+            i.fa.fa-envelope.fa-fw.w3-text-white.w3-xxlarge.w3-margin-right  
+            |  Email: mail@mail.com
+        br
+        p Let's get in touch. Send me a message:
+        form(action='/action_page.php', target='_blank')
+          p
+            input.w3-input.w3-padding-16(type='text', placeholder='Name', required='', name='Name')
+          p
+            input.w3-input.w3-padding-16(type='text', placeholder='Email', required='', name='Email')
+          p
+            input.w3-input.w3-padding-16(type='text', placeholder='Subject', required='', name='Subject')
+          p
+            input.w3-input.w3-padding-16(type='text', placeholder='Message', required='', name='Message')
+          p
+            button.w3-button.w3-light-grey.w3-padding-large(type='submit')
+              i.fa.fa-paper-plane
+              |  SEND MESSAGE
+        // End Contact Section
+        // Footer
+        footer.w3-content.w3-padding-64.w3-text-grey.w3-xlarge
+          i.fa.fa-facebook-official.w3-hover-opacity
+          i.fa.fa-instagram.w3-hover-opacity
+          i.fa.fa-snapchat.w3-hover-opacity
+          i.fa.fa-pinterest-p.w3-hover-opacity
+          i.fa.fa-twitter.w3-hover-opacity
+          i.fa.fa-linkedin.w3-hover-opacity
+          p.w3-medium
+            | Powered by 
+            a.w3-hover-text-green(href='https://www.w3schools.com/w3css/default.asp', target='_blank') w3.css
+          // End footer
+          // END PAGE CONTENT
